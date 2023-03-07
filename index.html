@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html><head>
+  <title>Vendetta | [API]</title>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <link href="soft-ui-dashboard.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+</head>
+<body style="background-color: #404040;" class="g-sidenav-show">
+<aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 ps ps--active-y" id="sidenav-main">
+  <div class="sidenav-header">
+    <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-xl-none" aria-hidden="true" id="iconSidenav"></i>
+    <a class="navbar-brand m-0" target="_blank">
+      <span style="text-align: center;font-size: 1.125rem;" class="ms-1 font-weight-bold">API Documentation</span>
+    </a>
+  </div>
+  <hr class="horizontal dark mt-0">
+  <div class="collapse navbar-collapse w-auto max-height-vh-100 h-100 ps" id="sidenav-collapse-main">
+    <ul class="navbar-nav">
+      <li class="nav-item mt-3" style="align-items: center;text-align: center;">
+        <h6 class=" text-xs font-weight-bolder opacity-6">APIs</h6>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="#">
+          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+            <img src="valow.png" style="float: left;" width="20" height="20">
+          </div>
+          <span class="nav-link-text ms-1">VALORANT</span>
+        </a>
+        <a href="soft-ui-dashboard.css"> meow </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <div style="background-image: linear-gradient(310deg, #8C8581 0%, #8C8581 100%);" class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+            <img src="r6s.png" style="color: #404040;" width="20" height="20">
+          </div>
+          <span class="nav-link-text ms-1" style="color: #8C8581">Rainbow Six Siege (WIP)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <div style="background-image: linear-gradient(310deg, #00a2ff 0%, #00a2ff 100%);" class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+          </div>
+          <span class="nav-link-text ms-1" style="color: #00a2ff">Wild Rift (WIP)</span>
+        </a>
+      </li>
+    </ul>
+  <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; height: 937px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 685px;"></div></div><div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></div><div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; height: 905px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 819px;"></div></div></aside>
+  <main class="main-content position-relative ps">
+    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true" style="flex-direction:row-reverse; height: 75px;">
+      <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
+        <div class="sidenav-toggler-inner">
+          <i class="sidenav-toggler-line"></i>
+          <i class="sidenav-toggler-line"></i>
+          <i class="sidenav-toggler-line"></i>
+        </div>
+      </a>
+    </nav>
+    <div class="container-fluid">
+      <div class="card" style="margin-top: 0;">
+          <div class="card-body">
+          <div style="margin-bottom: 5px;">
+            <span class="badge bg-gradient-info" style="margin-right: 10px;">GET</span>
+            <p class="card-title" style="display:inline">Get Account Data</p>
+            <br>
+          </div>
+          <a class="card-text" style="margin-bottom: 15px;">Get general account data like puuid and account level</a>
+          <div class="codemirror" style="line-height: 0.5;margin-bottom: 15px;overflow: hidden;">
+              <pre>GET /valorant/v1/account/:name/:tag</pre>
+          </div>
+          <div class="space"></div>
+          <form id="accountform">
+              <div class="form-group2">
+                  <label for="AccountName">Username</label>
+                  <input type="text" class="form-control" id="AccountName" placeholder="yoohei">
+                </div>
+                <div class="form-group2">
+                  <label for="AccountTag">Tagline</label>
+                  <input type="text" class="form-control" id="AccountTag" placeholder="kawa">
+                </div>
+          </form>
+          <div class="space" style="height: 5px;"></div>
+          <button type="submit" class="btn bg-gradient-secondary" id="buttonaccount"><span>Execute</span></button>
+          <div class="progress-wrapper" id="progress-wrapper-account" style="display: none;">
+            <div class="progress-info">
+              <div class="progress-percentage">
+                <span class="text-sm font-weight-bold" id="percentage-account">75%</span>
+              </div>
+            </div>
+            <div class="progress">
+              <div class="progress-bar bg-gradient-secondary" id="progress-account" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div>
+            </div>
+          </div>
+          <div class="space" style="height: 5px;"></div>
+          <a class="card-text">Request URL</a>
+          <div class="space" style="height: 5px;"></div>
+          <div class="codemirror" style="line-height: 0.5;overflow: hidden;">
+              <pre id="accounturl">https://api.henrikdev.xyz/valorant/v1/account/yoohei/kawa</pre>
+          </div>
+          <div class="space" style="height: 5px;"></div>
+          <a class="card-text">Response</a>
+          <div class="space" style="height: 5px;"></div>
+          <div class="codemirror">
+              <pre id="accountresponse">{
+"status": 404,
+"errors": [
+{
+"message": "Not found",
+"code": 0,
+"details": "null"
+}
+]
+}</pre>
+          </div>
+          <div class="space"></div>
+        </div>
+      </div>
+      <div class="card">
+          <div class="card-body">
+            <div style="margin-bottom: 5px;">
+              <span class="badge bg-gradient-info" style="margin-right: 10px;">GET</span>
+              <p class="card-title" style="display:inline">Get MMR Data</p>
+              <br>
+            </div>
+            <a class="card-text" style="margin-bottom: 15px;">Get mmr data about an user like current tier and last mmr change</a>
+            <div class="codemirror" style="line-height: 0.5;margin-bottom: 15px;overflow: hidden;">
+                <pre>GET /valorant/:version/mmr/:name/:tag</pre>
+            </div>
+            <div class="space"></div>
+            <form id="mmrform">
+              <div class="form-group2">
+                <label for="SelectMMRVersion">Version</label>
+                <select class="form-control" id="SelectMMRVersion">
+                  <option>v1</option>
+                  <option>v2</option>
+                </select>
+              </div>
+              <div class="form-group2">
+                  <label for="SelectMMR">Region</label>
+                  <select class="form-control" id="SelectMMR">
+                    <option>eu</option>
+                    <option>na</option>
+                    <option>ap</option>
+                    <option>kr</option>
+                  </select>
+                </div>
+              <div class="form-group2">
+                  <label for="MMRName">Username</label>
+                  <input type="text" class="form-control" id="MMRName" placeholder="yoohei">
+                </div>
+              <div class="form-group2">
+                <label for="MMRTag">Tagline</label>
+                <input type="text" class="form-control" id="MMRTag" placeholder="kawa">
+              </div>
+              <div class="form-group2" id="MMRFilterDiv" style="display: none;">
+                <label for="MMRFilter">Filter (optional)</label>
+                <input type="text" class="form-control" id="MMRFilter" placeholder="None">
+              </div>
+          </form>
+          <div id="mmrnote2" style="margin-bottom: 15px;display: none;">
+            <div class="codemirror" style="border-left: 2px solid #00EFFC;line-height: 0.5;overflow: hidden;">
+                <pre>Filter available: e3a1, e2a3, e2a2, e2a1, e1a3, e1a2, e1a1</pre>
+            </div>
+          </div>
+          <div id="mmrnote" style="margin-bottom: 15px;">
+              <div class="codemirror" style="border-left: 2px solid #00EFFC;line-height: 0.5;overflow: hidden;">
+                  <pre>If you want to select LATAM or BR as your region, use the NA Region for querying</pre>
+              </div>
+          </div>
+          <div class="space" style="height: 5px;"></div>
+          <button type="submit" class="btn bg-gradient-secondary" id="buttonmmr"><span>Execute</span></button>
+          <div class="progress-wrapper" id="progress-wrapper-mmr" style="display: none">
+            <div class="progress-info">
+              <div class="progress-percentage">
+                <span class="text-sm font-weight-bold" id="percentage-mmr">0%</span>
+              </div>
+            </div>
+            <div class="progress">
+              <div class="progress-bar bg-gradient-secondary" id="progress-mmr" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+            </div>
+          </div>
+          <div class="space" style="height: 5px;"></div>
+          <a class="card-text">Request URL</a>
+          <div class="space" style="height: 5px;"></div>
+          <div class="codemirror" style="line-height: 0.5;overflow: hidden;">
+              <pre id="mmrurl"></pre>
+          </div>
+          <div class="space" style="height: 5px;"></div>
+          <a class="card-text">Response</a>
+          <div class="space" style="height: 5px;"></div>
+          <div class="codemirror">
+              <pre id="mmrresponse"></pre>
+          </div>
+          <div class="space"></div>
+        </div>
+      </div>
+      <div class="card"> 
+        <div class="card-body">
+          <div style="margin-bottom: 5px;">
+            <span class="badge bg-gradient-info" style="margin-right: 10px;">GET</span>
+            <p class="card-title" style="display:inline">Get MMR Data by PUUID</p>
+            <br>
+          </div>
+          <a class="card-text" style="margin-bottom: 15px;">Get mmr data about an user like current tier and last mmr change</a>
+          <div class="codemirror" style="line-height: 0.5;margin-bottom: 15px;overflow: hidden;">
+              <pre>GET /valorant/:version/by-puuid/mmr/:region/:puuid</pre>
+          </div>
+          <div class="space"></div>
+          <form id="mmrform">
+            <div class="form-group2">
+              <label for="SelectMMRPuuidVersion">Version</label>
+              <select class="form-control" id="SelectMMRPuuidVersion">
+                <option>v1</option>
+                <option>v2</option>
+              </select>
+            </div>
+            <div class="form-group2">
+              <label for="SelectMMRPuuid">Region</label>
+              <select class="form-control" id="SelectMMRPuuid">
+                <option>eu</option>
+                <option>na</option>
+                <option>ap</option>
+                <option>kr</option>
+              </select>
+            </div>
+            <div class="form-group2">
+              <label for="MMRPuuid">PUUID</label>
+              <input type="text" class="form-control" id="MMRPuuid" placeholder="54942ced-1967-5f66-8a16-1e0dae875641">
+            </div>
+            <div class="form-group2" id="MMRPuuidFilterDiv" style="display: none;">
+              <label for="MMRPuuidFilter">Filter (optional)</label>
+              <input type="text" class="form-control" id="MMRPuuidFilter" placeholder="None">
+            </div>
+          </form>
+          <div id="mmrpuuidnote2" style="margin-bottom: 15px;display: none;">
+            <div class="codemirror" style="border-left: 2px solid #00EFFC;line-height: 0.5;overflow: hidden;">
+                <pre>Filter available: e3a1, e2a3, e2a2, e2a1, e1a3, e1a2, e1a1</pre>
+            </div>
+          </div>
+          <div id="mmrpuuidnote" style="margin-bottom: 15px;">
+              <div class="codemirror" style="border-left: 2px solid #00EFFC;line-height: 0.5;overflow: hidden;">
+                  <pre>If you want to select LATAM or BR as your region, use the NA Region for querying</pre>
+              </div>
+          </div>
+          <div class="space" style="height: 5px;"></div>
+          <button type="submit" class="btn bg-gradient-secondary" id="buttonmmrpuuid"><span>Execute</span></button>
+          <div class="progress-wrapper" id="progress-wrapper-mmr-puuid" style="display: none">
+            <div class="progress-info">
+              <div class="progress-percentage">
+                <span class="text-sm font-weight-bold" id="percentage-mmr-puuid">0%</span>
+              </div>
+            </div>
+            <div class="progress">
+              <div class="progress-bar bg-gradient-secondary" id="progress-mmr-puuid" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+            </div>
+          </div>
+          <div class="space" style="height: 5px;"></div>
+          <a class="card-text">Request URL</a>
+          <div class="space" style="height: 5px;"></div>
+          <div class="codemirror" style="line-height: 0.5;overflow: hidden;">
+              <pre id="mmrpuuidurl"></pre>
+          </div>
+          <div class="space" style="height: 5px;"></div>
+          <a class="card-text">Response</a>
+          <div class="space" style="height: 5px;"></div>
+          <div class="codemirror">
+              <pre id="mmrpuuidresponse"></pre>
+          </div>
+          <div class="space"></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+        <div style="margin-bottom: 5px;">
+          <span class="badge bg-gradient-info" style="margin-right: 10px;">GET</span>
+          <p class="card-title" style="display:inline">Get MMR History</p>
+          <br>
+        </div>
+        <a class="card-text" style="margin-bottom: 15px;">Get MMR History of the last competitive matches</a>
+        <div class="codemirror" style="line-height: 0.5;margin-bottom: 15px;overflow: hidden;">
+            <pre>GET /valorant/v1/mmr-history/:region/:name/:tag</pre>
+        </div>
+        <div class="space"></div>
+        <form id="mmrhistoryform">
+            <div class="form-group2">
+              <label for="SelectMMRHistory">Region</label>
+              <select class="form-control" id="SelectMMRHistory">
+                <option>eu</option>
+                <option>na</option>
+                <option>ap</option>
+                <option>kr</option>
+              </select>
+            </div>
+            <div class="form-group2">
+                <label for="MMRHistoryName">Username</label>
+                <input type="text" class="form-control" id="MMRHistoryName" placeholder="yoohei">
+            </div>
+            <div class="form-group2">
+              <label for="MMRHistoryTag">Tagline</label>
+              <input type="text" class="form-control" id="MMRHistoryTag" placeholder="kawa">
+            </div>
+        </form>
+        <div class="space" style="height: 5px;"></div>
+        <button type="submit" class="btn bg-gradient-secondary" id="buttonmmrhistory"><span>Execute</span></button>
+        <div class="progress-wrapper" id="progress-wrapper-mmr-history" style="display: none">
+          <div class="progress-info">
+            <div class="progress-percentage">
+              <span class="text-sm font-weight-bold" id="percentage-mmr-history">0%</span>
+            </div>
+          </div>
+          <div class="progress">
+            <div class="progress-bar bg-gradient-secondary" id="progress-mmr-history" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+          </div>
+        </div>
+        <div class="space" style="height: 5px;"></div>
+        <a class="card-text">Request URL</a>
+        <div class="space" style="height: 5px;"></div>
+        <div class="codemirror" style="line-height: 0.5;overflow: hidden;">
+            <pre id="mmrhistoryurl"></pre>
+        </div>
+        <div class="space" style="height: 5px;"></div>
+        <a class="card-text">Response</a>
+        <div class="space" style="height: 5px;"></div>
+        <div class="codemirror">
+            <pre id="mmrhistoryresponse"></pre>
+        </div>
+        <div class="space"></div>
+      </div>
+      </div>
+      <div class="card"> 
+        <div class="card-body">
+          <div style="margin-bottom: 5px;">
+            <span class="badge bg-gradient-info" style="margin-right: 10px;">GET</span>
+            <p class="card-title" style="display:inline">Get MMR History by PUUID</p>
+            <br>
+          </div>
+          <a class="card-text" style="margin-bottom: 15px;">Get mmr data about an user like current tier and last mmr change</a>
+          <div class="codemirror" style="line-height: 0.5;margin-bottom: 15px;overflow: hidden;">
+              <pre>GET /valorant/v1/by-puuid/mmr-history/:region/:puuid</pre>
+          </div>
+          <div class="space"></div>
+          <form id="mmrform">
+            <div class="form-group2">
+              <label for="SelectMMRHistoryPuuid">Region</label>
+              <select class="form-control" id="SelectMMRHistoryPuuid">
+                <option>eu</option>
+                <option>na</option>
+                <option>ap</option>
+                <option>kr</option>
+              </select>
+            </div>
+            <div class="form-group2">
+              <label for="MMRHistoryPuuid">PUUID</label>
+              <input type="text" class="form-control" id="MMRHistoryPuuid" placeholder="54942ced-1967-5f66-8a16-1e0dae875641">
+            </div>
+          </form>
+          <div id="mmrhistorypuuidnote" style="margin-bottom: 15px;">
+              <div class="codemirror" style="border-left: 2px solid #00EFFC;line-height: 0.5;overflow: hidden;">
+                  <pre>If you want to select LATAM or BR as your region, use the NA Region for querying</pre>
+              </div>
+          </div>
+          <div class="space" style="height: 5px;"></div>
+          <button type="submit" class="btn bg-gradient-secondary" id="buttonmmrhistorypuuid"><span>Execute</span></button>
+          <div class="progress-wrapper" id="progress-wrapper-mmr-history-puuid" style="display: none">
+            <div class="progress-info">
+              <div class="progress-percentage">
+                <span class="text-sm font-weight-bold" id="percentage-mmr-history-puuid">0%</span>
+              </div>
+            </div>
+            <div class="progress">
+              <div class="progress-bar bg-gradient-secondary" id="progress-mmr-history-puuid" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+            </div>
+          </div>
+          <div class="space" style="height: 5px;"></div>
+          <a class="card-text">Request URL</a>
+          <div class="space" style="height: 5px;"></div>
+          <div class="codemirror" style="line-height: 0.5;overflow: hidden;">
+              <pre id="mmrhistorypuuidurl"></pre>
+          </div>
+          <div class="space" style="height: 5px;"></div>
+          <a class="card-text">Response</a>
+          <div class="space" style="height: 5px;"></div>
+          <div class="codemirror">
+              <pre id="mmrhistorypuuidresponse"></pre>
+          </div>
+          <div class="space"></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <div style="margin-bottom: 5px;">
+            <span class="badge bg-gradient-info" style="margin-right: 10px;">GET</span>
+            <p class="card-title" style="display:inline">Get Match History</p>
+            <br>
+          </div>
+          <a class="card-text" style="display:inline">Returns the last 5 matches that where played by this user</a>
+          <div class="codemirror" style="line-height: 0.5;margin-bottom: 15px;overflow: hidden;">
+              <pre>GET /valorant/v3/matches/:region/:name/:tag</pre>
+          </div>
+          <div class="space"></div>
+          <form id="matchesform">
+            <div class="form-group2">
+              <label for="SelectMatches">Region</label>
+              <select class="form-control" id="SelectMatches">
+                <option>eu</option>
+                <option>na</option>
+                <option>ap</option>
+                <option>kr</option>
+              </select>
+            </div>
+            <div class="form-group2">
+              <label for="MatchesName">Username</label>
+              <input type="text" class="form-control" id="MatchesName" placeholder="yoohei">
+            </div>
+            <div class="form-group2">
+              <label for="MatchesTag">Tagline</label>
+              <input type="text" class="form-control" id="MatchesTag" placeholder="kawa">
+            </div>
+            <div class="form-group2">
+              <label for="MatchesFilter">Filter (optional)</label>
+              <input type="text" class="form-control" id="MatchesFilter" placeholder="None">
+            </div>
+          </form>
+          <div id="matchesnote" style="margin-bottom: 15px;">
+              <div class="codemirror" style="border-left: 2px solid #00EFFC;line-height: 0.5;overflow: hidden;">
+                  <pre>Filter available: escalation, spikerush, deathmatch, competitive, unrated, replication</pre>
+              </div>
+          </div>
+          <div id="matchesnote2" style="margin-bottom: 15px;">
+            <div class="codemirror" style="border-left: 2px solid #00EFFC;line-height: 0.5;overflow: hidden;">
+                <pre>If you want to select LATAM or BR as your region, use the NA Region for querying</pre>
+            </div>
+          </div>
+          <div class="space" style="height: 5px;"></div>
+          <button type="submit" class="btn bg-gradient-secondary" id="buttonmatches">Execute</button>
+          <div class="progress-wrapper" id="progress-wrapper-matches" style="display: none">
+            <div class="progress-info">
+              <div class="progress-percentage">
+                <span class="text-sm font-weight-bold" id="percentage-matches">0%</span>
+              </div>
+            </div>
+            <div class="progress">
+              <div class="progress-bar bg-gradient-secondary" id="progress-matches" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+            </div>
+          </div>
+          <div class="space" style="height: 5px;"></div>
+          <a class="card-text">Request URL</a>
+          <div class="space" style="height: 5px;"></div>
+          <div class="codemirror" style="line-height: 0.5;overflow: hidden;">
+              <pre id="matchesurl"></pre>
+          </div>
+          <div class="space" style="height: 5px;"></div>
+          <a class="card-text">Response</a>
+          <div class="space" style="height: 5px;"></div>
+          <div class="codemirror">
+              <pre id="matchesresponse"></pre>
+          </div>
+          <div class="space"></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <div style="margin-bottom: 5px;">
+            <span class="badge bg-gradient-info" style="margin-right: 10px;">GET</span>
+            <p class="card-title" style="display:inline">Get Match History by PUUID </p>
+            <br>
+          </div>
+          <a class="card-text">Returns the last 5 matches that where played by this user</a>
+          <div class="codemirror" style="line-height: 0.5;margin-bottom: 15px;overflow: hidden;">
+              <pre>GET /valorant/v3/by-puuid/matches/:region/:puuid</pre>
+          </div>
+          <div class="space"></div>
+          <form id="matchidform">
+            <div class="form-group2">
+              <label for="SelectMatchesPuuid">Region</label>
+              <select class="form-control" id="SelectMatchesPuuid">
+                <option>eu</option>
+                <option>na</option>
+                <option>ap</option>
+                <option>kr</option>
+              </select>
+            </div>
+            <div class="form-group2">
+              <label for="MatchesPuuid">PUUID</label>
+              <input type="text" class="form-control" id="MatchesPuuid" placeholder="54942ced-1967-5f66-8a16-1e0dae875641">
+            </div>
+            <div class="form-group2">
+              <label for="MatchesFilter">Filter (optional)</label>
+              <input type="text" class="form-control" id="MatchesFilter" placeholder="None">
+            </div>
+          </form>
+          <div id="matchespuuidnote" style="margin-bottom: 15px;">
+            <div class="codemirror" style="border-left: 2px solid #00EFFC;line-height: 0.5;overflow: hidden;">
+                <pre>Filter available: escalation, spikerush, deathmatch, competitive, unrated, replication</pre>
+            </div>
+          </div>
+          <button type="submit" class="btn bg-gradient-secondary" id="buttonmatchespuuid">Execute</button>
+          <div class="progress-wrapper" id="progress-wrapper-matches-puuid" style="display: none">
+            <div class="progress-info">
+              <div class="progress-percentage">
+                <span class="text-sm font-weight-bold" id="percentage-matches-puuid">0%</span>
+              </div>
+            </div>
+            <div class="progress">
+              <div class="progress-bar bg-gradient-secondary" id="progress-matches-puuid" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+            </div>
+          </div>
+          <div class="space" style="height: 5px;"></div>
+          <a class="card-text">Request URL</a>
+          <div class="space" style="height: 5px;"></div>
+          <div class="codemirror" style="line-height: 0.5;overflow: hidden;">
+              <pre id="matchespuuidurl"></pre>
+          </div>
+          <div class="space" style="height: 5px;"></div>
+          <a class="card-text">Response</a>
+          <div class="space" style="height: 5px;"></div>
+          <div class="codemirror">
+              <pre id="matchespuuidresponse"></pre>
+          </div>
+          <div class="space"></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <div style="margin-bottom: 5px;">
+            <span class="badge bg-gradient-info" style="margin-right: 10px;">GET</span>
+            <p class="card-title" style="display:inline">Get Match Data </p>
+            <br>
+          </div>
+          <a class="card-text">Returns match data for a specific match</a>
+          <div class="codemirror" style="line-height: 0.5;margin-bottom: 15px;overflow: hidden;">
+              <pre>GET /valorant/v2/match/:matchid</pre>
+          </div>
+          <div class="space"></div>
+          <form id="matchidform">
+            <div class="form-group2">
+              <label for="matchidinput">Match ID</label>
+              <input type="text" class="form-control" id="matchidinput" placeholder="3ce17074-d74f-493c-8665-a8937838d066">
+            </div>
+          </form>
+          <div id="matchidnote"></div>
+          <button type="submit" class="btn bg-gradient-secondary" id="buttonmatchid">Execute</button>
+          <div class="progress-wrapper" id="progress-wrapper-matchid" style="display: none">
+            <div class="progress-info">
+              <div class="progress-percentage">
+                <span class="text-sm font-weight-bold" id="percentage-matchid">0%</span>
+              </div>
+            </div>
+            <div class="progress">
+              <div class="progress-bar bg-gradient-secondary" id="progress-matchid" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+            </div>
+          </div>
+          <div class="space" style="height: 5px;"></div>
+          <a class="card-text">Request URL</a>
+          <div class="space" style="height: 5px;"></div>
+          <div class="codemirror" style="line-height: 0.5;overflow: hidden;">
+              <pre id="matchidurl"></pre>
+          </div>
+          <div class="space" style="height: 5px;"></div>
+          <a class="card-text">Response</a>
+          <div class="space" style="height: 5px;"></div>
+          <div class="codemirror">
+              <pre id="matchidresponse"></pre>
+          </div>
+          <div class="space"></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <div style="margin-bottom: 5px;">
+            <span class="badge bg-gradient-info" style="margin-right: 10px;">GET</span>
+            <p class="card-title" style="display:inline">Get Website Articles</p>
+            <br>
+          </div>
+          <a class="card-text">Get website articles based on your country code</a>
+          <div class="codemirror" style="line-height: 0.5;margin-bottom: 15px;overflow: hidden;">
+              <pre>GET /valorant/v1/website/:country-code</pre>
+          </div>
+          <div class="space"></div>
+          <form id="websiteform">
+            <div class="form-group2">
+                <label for="Selectwebsite">Region</label>
+                <select class="form-control" id="Selectwebsite">
+                  <option>en-us</option>
+                  <option>en-gb</option>
+                  <option>de-de</option>
+                  <option>es-es</option>
+                  <option>fr-fr</option>
+                  <option>it-it</option>
+                  <option>ru-ru</option>
+                  <option>tr-tr</option>
+                  <option>es-mx</option>
+                  <option>ja-jp</option>
+                  <option>ko-kr</option>
+                  <option>pt-br</option>
+                </select>
+            </div>
+            <div class="form-group2">
+              <label for="websiteinput">Filter (Optional) </label>
+              <input type="text" class="form-control" id="websiteinput" placeholder="None">
+            </div>
+          </form>
+          <div id="websitenote" style="margin-bottom: 15px;">
+              <div class="codemirror" style="border-left: 2px solid #00EFFC;line-height: 0.5;overflow: hidden;">
+                  <pre>Filter Available: game_updates, dev, esports, announcments</pre>
+              </div>
+          </div>
+          <div class="space" style="height: 5px;"></div>
+          <button type="submit" class="btn bg-gradient-secondary" id="buttonwebsite">Execute</button>
+          <div class="progress-wrapper" id="progress-wrapper-website" style="display: none">
+            <div class="progress-info">
+              <div class="progress-percentage">
+                <span class="text-sm font-weight-bold" id="percentage-website">0%</span>
+              </div>
+            </div>
+            <div class="progress">
+              <div class="progress-bar bg-gradient-secondary" id="progress-website" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+            </div>
+          </div>
+          <div class="space" style="height: 5px;"></div>
+          <a class="card-text">Request URL</a>
+          <div class="space" style="height: 5px;"></div>
+          <div class="codemirror" style="line-height: 0.5;overflow: hidden;">
+              <pre id="websiteurl"></pre>
+          </div>
+          <div class="space" style="height: 5px;"></div>
+          <a class="card-text">Response</a>
+          <div class="space" style="height: 5px;"></div>
+          <div class="codemirror">
+              <pre id="websiteresponse"></pre>
+          </div>
+          <div class="space"></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <div style="margin-bottom: 5px;">
+            <span class="badge bg-gradient-info" style="margin-right: 10px;">GET</span>
+            <p class="card-title" style="display:inline">Get Leaderboard</p>
+            <br>
+          </div>
+          <a class="card-text">Returns leaderboard data for the given region</a>
+          <div class="codemirror" style="line-height: 0.5;overflow: hidden;margin-bottom: 15px;">
+              <pre>GET /valorant/v1/leaderboard/:region</pre>
+          </div>
+          <div class="space"></div>
+          <form id="lbform">
+            <div class="form-group2">
+              <label for="Selectlb">Region</label>
+              <select class="form-control" id="Selectlb">
+                <option>eu</option>
+                <option>na</option>
+                <option>ap</option>
+                <option>kr</option>
+              </select>
+            </div>
+            <div class="form-group2">
+              <label for="LBFilterName">Filter Name (optional)</label>
+              <input type="text" class="form-control" id="LBFilterName" placeholder="None">
+            </div>
+            <div class="form-group2">
+              <label for="LBFilterTag">Filter Tag (optional)</label>
+              <input type="text" class="form-control" id="LBFilterTag" placeholder="None">
+            </div>
+          </form>
+          <div id="lbnote" style="margin-bottom: 15px;">
+            <div class="codemirror" style="border-left: 2px solid #00EFFC;line-height: 0.5;overflow: hidden;">
+              <pre>If you want to select LATAM or BR as your region, use the NA Region for querying</pre>
+            </div>
+          </div>
+          <div id="lbnote" style="margin-bottom: 15px;">
+            <div class="codemirror" style="border-left: 2px solid #00EFFC;line-height: 0.5;overflow: hidden;">
+              <pre>Currently only returning the first 510 entries</pre>
+            </div>
+          </div>
+          <div class="space" style="height: 5px;"></div>
+          <button type="submit" class="btn bg-gradient-secondary" id="buttonlb">Execute</button>
+          <div class="progress-wrapper" id="progress-wrapper-lb" style="display: none">
+            <div class="progress-info">
+              <div class="progress-percentage">
+                <span class="text-sm font-weight-bold" id="percentage-lb">0%</span>
+              </div>
+            </div>
+            <div class="progress">
+              <div class="progress-bar bg-gradient-secondary" id="progress-lb" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+            </div>
+          </div>
+          <div class="space" style="height: 5px;"></div>
+          <a class="card-text">Request URL</a>
+          <div class="space" style="height: 5px;"></div>
+          <div class="codemirror" style="line-height: 0.5;overflow: hidden;">
+              <pre id="lburl"></pre>
+          </div>
+          <div class="space" style="height: 5px;"></div>
+          <a class="card-text">Response</a>
+          <div class="space" style="height: 5px;"></div>
+          <div class="codemirror">
+              <pre id="lbresponse"></pre>
+          </div>
+          <div class="space"></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <div style="margin-bottom: 5px;">
+            <span class="badge bg-gradient-info" style="margin-right: 10px;">GET</span>
+            <p class="card-title" style="display:inline">Get Server Status</p>
+            <br>
+          </div>
+          <a class="card-text">Returns server status for the given region</a>
+          <div class="codemirror" style="line-height: 0.5;margin-bottom: 15px;overflow: hidden;">
+              <pre>GET /valorant/v1/status/:region</pre>
+          </div>
+          <div class="space"></div>
+          <form id="statusform">
+              <div class="form-group2">
+                  <label for="Selectstatus">Region</label>
+                  <select class="form-control" id="Selectstatus">
+                    <option>eu</option>
+                    <option>na</option>
+                    <option>ap</option>
+                    <option>kr</option>
+                  </select>
+                </div>
+          </form>
+          <div id="statusnote" style="margin-bottom: 15px;">
+              <div class="codemirror" style="border-left: 2px solid #00EFFC;line-height: 0.5;overflow: hidden;">
+                  <pre>If you want to select LATAM or BR as your region, use the NA Region for querying</pre>
+              </div>
+          </div>
+          <div class="space" style="height: 5px;"></div>
+          <button type="submit" class="btn bg-gradient-secondary" id="buttonstatus">Execute</button>
+          <div class="progress-wrapper" id="progress-wrapper-status" style="display: none">
+            <div class="progress-info">
+              <div class="progress-percentage">
+                <span class="text-sm font-weight-bold" id="percentage-status">0%</span>
+              </div>
+            </div>
+            <div class="progress">
+              <div class="progress-bar bg-gradient-secondary" id="progress-status" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+            </div>
+          </div>
+          <div class="space" style="height: 5px;"></div>
+          <a class="card-text">Request URL</a>
+          <div class="space" style="height: 5px;"></div>
+          <div class="codemirror" style="line-height: 0.5;overflow: hidden;">
+              <pre id="statusurl"></pre>
+          </div>
+          <div class="space" style="height: 5px;"></div>
+          <a class="card-text">Response</a>
+          <div class="space" style="height: 5px;"></div>
+          <div class="codemirror">
+              <pre id="statusresponse"></pre>
+          </div>
+          <div class="space"></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <div style="margin-bottom: 5px;">
+            <span class="badge bg-gradient-info" style="margin-right: 10px;">GET</span>
+            <p class="card-title" style="display:inline">Get Content</p>
+            <br>
+          </div>
+          <a class="card-text">Returns Ingame Content</a>
+          <div class="codemirror" style="line-height: 0.5;overflow: hidden;margin-bottom: 20px;">
+              <pre>GET /valorant/v1/content</pre>
+          </div>
+          <div class="space"></div>
+          <div id="contentnote"></div>
+          <button type="submit" class="btn bg-gradient-secondary" id="buttoncontent">Execute</button>
+          <div class="progress-wrapper" id="progress-wrapper-content" style="display: none">
+            <div class="progress-info">
+              <div class="progress-percentage">
+                <span class="text-sm font-weight-bold" id="percentage-content">0%</span>
+              </div>
+            </div>
+            <div class="progress">
+              <div class="progress-bar bg-gradient-secondary" id="progress-content" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+            </div>
+          </div>
+          <div class="space" style="height: 5px;"></div>
+          <a class="card-text">Request URL</a>
+          <div class="space" style="height: 5px;"></div>
+          <div class="codemirror" style="line-height: 0.5;overflow: hidden;">
+              <pre id="contenturl"></pre>
+          </div>
+          <div class="space" style="height: 5px;"></div>
+          <a class="card-text">Response</a>
+          <div class="space" style="height: 5px;"></div>
+          <div class="codemirror">
+              <pre id="contentresponse"></pre>
+          </div>
+          <div class="space"></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <div style="margin-bottom: 5px;">
+            <span class="badge bg-gradient-info" style="margin-right: 10px;">GET</span>
+            <p class="card-title" style="display:inline">Get all available offers</p>
+            <br>
+          </div>
+          <a class="card-text">Returns all available store offers</a>
+          <div class="codemirror" style="line-height: 0.5;margin-bottom: 20px;overflow: hidden;">
+              <pre>GET /valorant/v1/store-offers</pre>
+          </div>
+          <div class="space"></div>
+          <div id="storeoffernote"></div>
+          <button type="submit" class="btn bg-gradient-secondary" id="buttonstoreoffer">Execute</button>
+          <div class="progress-wrapper" id="progress-wrapper-store-offers" style="display: none">
+            <div class="progress-info">
+              <div class="progress-percentage">
+                <span class="text-sm font-weight-bold" id="percentage-store-offers">0%</span>
+              </div>
+            </div>
+            <div class="progress">
+              <div class="progress-bar bg-gradient-secondary" id="progress-store-offers" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+            </div>
+          </div>
+          <div class="space" style="height: 5px;"></div>
+          <a class="card-text">Request URL</a>
+          <div class="space" style="height: 5px;"></div>
+          <div class="codemirror" style="line-height: 0.5;overflow: hidden;">
+              <pre id="storeofferurl"></pre>
+          </div>
+          <div class="space" style="height: 5px;"></div>
+          <a class="card-text">Response</a>
+          <div class="space" style="height: 5px;"></div>
+          <div class="codemirror">
+              <pre id="storeofferresponse"></pre>
+          </div>
+          <div class="space"></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <div style="margin-bottom: 5px;">
+            <span class="badge bg-gradient-info" style="margin-right: 10px;">GET</span>
+            <p class="card-title" style="display:inline">Get Featured Bundle</p>
+            <br>
+          </div>
+          <a class="card-text">Returns the featured ingame shop offers</a>
+          <div class="codemirror" style="line-height: 0.5;margin-bottom: 20px;overflow: hidden;">
+              <pre>GET /valorant/v1/store-featured</pre>
+          </div>
+          <div class="space"></div>
+          <div id="storefeaturednote"></div>
+          <button type="submit" class="btn bg-gradient-secondary" id="buttonstorefeatured">Execute</button>
+          <div class="progress-wrapper" id="progress-wrapper-store-featured" style="display: none">
+            <div class="progress-info">
+              <div class="progress-percentage">
+                <span class="text-sm font-weight-bold" id="percentage-store-featured">0%</span>
+              </div>
+            </div>
+            <div class="progress">
+              <div class="progress-bar bg-gradient-secondary" id="progress-store-featured" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+            </div>
+          </div>
+          <div class="space" style="height: 5px;"></div>
+          <a class="card-text">Request URL</a>
+          <div class="space" style="height: 5px;"></div>
+          <div class="codemirror" style="line-height: 0.5;overflow: hidden;">
+              <pre id="storefeaturedurl"></pre>
+          </div>
+          <div class="space" style="height: 5px;"></div>
+          <a class="card-text">Response</a>
+          <div class="space" style="height: 5px;"></div>
+          <div class="codemirror">
+              <pre id="storefeaturedresponse"></pre>
+          </div>
+          <div class="space"></div>
+        </div>
+      </div>
+    </div>
+  <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></main>
+  <script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+      var options = {
+        damping: '0.5'
+      }
+      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+  </script>
+  <script src="/core/bootstrap.min.js" type="text/javascript"></script>
+  <script src="perfect-scrollbar.js" type="text/javascript"></script>
+  <script src="soft-ui-dashboard.js" type="text/javascript"></script>
+  <script src="/core/popper.min.js" type="text/javascript"></script>
+  <script src="fetch-req.js" type="text/javascript"></script>
+<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993" integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA==" data-cf-beacon="{&quot;rayId&quot;:&quot;7a46143c6d4614f9&quot;,&quot;version&quot;:&quot;2023.2.0&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;55a9de57122d45708c8a09e6cc526c66&quot;,&quot;si&quot;:100}" crossorigin="anonymous"></script>
+
+</body></html>
